@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Doctor;
 use Illuminate\Http\Request;
 
 class ClintBookingController extends Controller
 {
-    public function index()
+    public function index($id)
     {
-        return view("clint.pages.booking");
+        $doctor = Doctor::find($id);
+        return view("clint.pages.booking" , compact("doctor"));
     }
 }

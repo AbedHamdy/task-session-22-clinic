@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Doctor;
+use App\Models\Major;
 
 class ClintDoctorsController extends Controller
 {
     public function index()
     {
-        return view("clint.pages.doctors");
+        $doctors = Doctor::get();
+        return view("clint.pages.doctors",compact("doctors"));
     }
 }
